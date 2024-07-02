@@ -8,26 +8,22 @@ export const headerData = {
     },
     {
       text: 'About',
-      href: getPermalink('/'),
+      href: getPermalink('/about'),
+    },
+    {
+      text: 'Signature',
+      href: getPermalink('/signature'),
     },
     {
       text: 'Programs',
       links: [
-        { text: 'Signature Offer', href: getPermalink('/') },
-        { text: 'Flow Masters Club', href: getPermalink('/') },
+        { text: 'Signature', href: getPermalink('/signature') },
+        { text: 'Flow Masters Club', href: getPermalink('/flow_masters') },
       ],
     },
     {
-      text: 'Signature Offer',
-      href: getPermalink('/'),
-    },
-    {
-      text: 'Flow Masters Club',
-      href: getPermalink('/'),
-    },
-    {
       text: 'Resources',
-      href: getPermalink('/'),
+      href: getPermalink('/resources'),
     },
     {
       text: 'Blog',
@@ -38,7 +34,6 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
@@ -48,43 +43,6 @@ export const footerData = {
       links: [
         { text: 'Features', href: '#' },
         { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
-      ],
-    },
-    {
-      title: 'Platform',
-      links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
       ],
     },
   ],
