@@ -26,7 +26,7 @@ export const headerData = {
       href: getPermalink('/resources'),
     },
     {
-      text: 'Blog',
+      text: 'Journal',
       href: getBlogPermalink(),
     },
     {
