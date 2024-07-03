@@ -1,0 +1,23 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Confirmation',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Start" class="h-full">
+    <Fragment slot="title">Meeting confirmed<br /> you are all set!</Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="p-12">
+        <strong>
+          Please make sure you attend meeting from a quiet place where you will not be disturbed and have a good
+          internet connection.
+        </strong>
+      </div>
+    </Fragment>
+  </Hero>
+</Layout>
