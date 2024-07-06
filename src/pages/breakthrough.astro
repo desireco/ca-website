@@ -2,7 +2,6 @@
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -12,142 +11,133 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
-    tagline="About us"
+    tagline="Our Signature Offering"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1517575563495-023867667b3a',
+      alt: 'Breakthrough Image',
     }}
   >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white highlight"> Beautiful Website Templates</span>
-    </Fragment>
+    <Fragment slot="title"> Breakthrough Blueprint </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Our signature offering is a <strong>12-week intensive program</strong> that helps you to <strong
+        >achieve your goals and dreams</strong
+      >. We will <strong>guide you</strong> and provide you with the <strong>tools and resources</strong> you need to succeed.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
+    title="Are you feeling stuck, unfulfilled, and unsure of your next steps in life? <br><br> <small>It's time to break free from the monotony and unlock your true potential with our transformative program</small>"
+    subtitle="Breakthrough Blueprint: Unlock Your Potential."
+    columns={2}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'Discover Your True Self',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
+          "In this comprehensive 12-week journey, you'll delve deep into understanding who you are and what truly matters to you. Through guided self-awareness exercises and values clarification, you'll gain a clear picture of your strengths, passions, and core values. This foundational knowledge will be the cornerstone of your transformation.",
         icon: 'tabler:template',
       },
       {
-        title: 'Interior Design',
+        title: 'Set and Achieve Powerful Goals',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
+          "Our program empowers you to set ambitious yet achievable goals using the SMART framework. You'll create a personalized roadmap that aligns with your newfound self-awareness, ensuring that every step you take is purposeful and impactful. With one-on-one coaching and vision board creation, you'll visualize and plan your success in detail.",
         icon: 'tabler:template',
       },
       {
-        title: 'Photography',
+        title: 'Build Resilience and Overcome Obstacles',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
+          "Life's challenges are inevitable, but with Breakthrough Blueprint, you'll develop the resilience and strategies needed to overcome them. Through problem-solving exercises, stress management techniques, and group discussions, you'll learn to navigate obstacles with confidence and poise.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Enhance Focus and Productivity',
+        description:
+          "Say goodbye to distractions and inefficiency. Our program includes time management workshops, routine development, and productivity enhancement strategies that will help you stay focused and accomplish more. You'll create effective habits and routines that drive you towards your goals.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Foster Meaningful Relationships',
+        description:
+          "Human connection is vital for a fulfilling life. You'll participate in communication workshops, empathy exercises, and group activities that will help you build deeper, more meaningful relationships. Strengthen your network and develop supportive, lasting connections.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Create a Vision for the Future',
+        description:
+          "With Breakthrough Blueprint, you won't just set goals; you'll envision a future that excites and inspires you. Through future self-visualization exercises, long-term planning workshops, and legacy projects, you'll create a compelling vision for your life and work towards making it a reality.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Implement and Reflect',
+        description:
+          "Our program ensures that you put your plans into action and continuously refine them. You'll regularly review your progress, share insights with the group, and reflect on your achievements. This cycle of implementation and reflection keeps you on track and motivated.",
         icon: 'tabler:template',
       },
     ]}
   />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Why Choose Breakthrough Blueprint?"
+    subtitle=`
+    <small>
+    <h5 class="py-2 text-lg">Comprehensive and Structured:</h5>
+    <p class="text-lg py-2">Our program covers all aspects of personal growth, from self-awareness to long-term vision.</p>
+
+    <h5 class="py-2 text-lg">Support:</h5>
+    <p class="text-lg py-2">We will share your journey, offering mutual support and encouragement.</p>
+
+    <h5 class="py-2 text-lg">Expert Guidance:</h5>
+    <p class="text-lg py-2">Benefit from the experience and insights of our skilled coaches who are dedicated to your success.</p>
+
+    <h5 class="py-2 text-lg">Tangible Results:</h5>
+    <p class="text-lg py-2">Experience real, measurable progress in your personal and professional life.</p>
+    </small>`
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Are you ready to discover your true self and align your goals with what truly matters to you?',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          "You'll gain a deep understanding of your core values and personal mission, ensuring that your efforts lead to fulfilling and impactful accomplishments.",
       },
       {
-        title: 'Constant Improvement',
+        title:
+          'Do you want to cultivate a mindset that drives you to complete your goals and overcome procrastination?',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'You’ll develop a powerful finisher’s mindset, learning motivational strategies and resilience techniques that help you see every task through to the end.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'How would you like to learn practical tools and techniques to manage your workload and reduce stress?',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'You’ll implement the GTD (Getting Things Done) framework, capturing, clarifying, organizing, reflecting, and engaging with your tasks effectively.',
+      },
+      {
+        title: 'Are you looking for a clear, actionable plan to achieve your goals?',
+        description:
+          'You’ll set strategic, actionable goals that align with your long-term vision, breaking down big goals into manageable steps and creating detailed action plans.',
+      },
+      {
+        title: 'Do you want to create a compelling vision for your life and turn it into reality?',
+        description:
+          'You’ll define a clear, compelling vision for your future, using visualization exercises and vision board creation to articulate your dreams and develop a roadmap.',
+      },
+      {
+        title: 'Would you like to build effective habits and routines that keep you focused and energized?',
+        description:
+          'You’ll learn how to develop consistent daily practices, from morning rituals to productivity hacks, ensuring you stay on track to achieve your goals.',
+      },
+      {
+        title: 'Are you seeking accountability and support from a community of like-minded individuals?',
+        description:
+          'You’ll benefit from regular check-ins, group support, and accountability partners, ensuring you stay committed to your goals and receive encouragement along the way.',
+      },
+      {
+        title: 'Do you want skills and strategies that will serve you for a lifetime?',
+        description:
+          'You’ll attend the program once, but the knowledge and techniques you gain will empower you to achieve your goals and fulfill your vision for the rest of your life.',
       },
     ]}
   />
-
-  <!-- Steps2 Widget ****************** -->
 
   <Steps2
     title="Achievements"
@@ -174,54 +164,6 @@ const metadata = {
         description:
           'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
         icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
       },
     ]}
   />
