@@ -11,13 +11,13 @@ export const headerData = {
       href: getPermalink('/about'),
     },
     {
-      text: 'Signature',
-      href: getPermalink('/signature'),
+      text: 'Breakthrough Blueprint',
+      href: getPermalink('/breakthrough'),
     },
     {
       text: 'Programs',
       links: [
-        { text: 'Signature', href: getPermalink('/signature') },
+        { text: 'Breakthrough Blueprint', href: getPermalink('/breakthrough') },
         { text: 'Flow Masters Club', href: getPermalink('/flow_masters') },
       ],
     },
