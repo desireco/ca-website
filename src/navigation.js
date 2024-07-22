@@ -14,17 +14,17 @@ export const headerData = {
       text: 'Breakthrough Blueprint',
       href: getPermalink('/breakthrough'),
     },
-    {
-      text: 'Programs',
-      links: [
-        { text: 'Breakthrough Blueprint', href: getPermalink('/breakthrough') },
-        { text: 'Flow Masters Club', href: getPermalink('/flow_masters') },
-      ],
-    },
-    {
-      text: 'Resources',
-      href: getPermalink('/resources'),
-    },
+    // {
+    //   text: 'Programs',
+    //   links: [
+    //     { text: 'Breakthrough Blueprint', href: getPermalink('/breakthrough') },
+    //     { text: 'Flow Masters Club', href: getPermalink('/flow_masters') },
+    //   ],
+    // },
+    // {
+    //   text: 'Resources',
+    //   href: getPermalink('/resources'),
+    // },
     {
       text: 'Journal',
       href: getBlogPermalink(),
