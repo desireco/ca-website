@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: 'Start',
@@ -8,18 +9,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- <Hero tagline="Start">
-    image={{
-    src: 'https://images.unsplash.com/photo-1708446309501-b73d6199392f',
-    alt: 'Infinite Opportunities',
-  }}
-    <Fragment slot="title">Let's start working together </Fragment>
-
-    <Fragment slot="subtitle">
-      Before we can sign you up for any program, we need to have a chat to see if we are a good fit for each other.
-    </Fragment>
-  </Hero>
- -->
   <Hero tagline="Schedule a call">
     <Fragment slot="title"> Book a call to get started </Fragment>
     <Fragment slot="subtitle">
@@ -27,4 +16,25 @@ const metadata = {
       <script src="https://assets.tidycal.com/js/embed.js" async></script>
     </Fragment>
   </Hero>
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'Will I be better after this program?',
+        description:
+          "That is guaranteed. We have a 100% success rate with our clients, we have yet to get that one that just doesn't want to change.",
+      },
+      {
+        title: 'How can I be sure of success?',
+        description:
+          'We screen clients before they start the program, so if you are offered program, that means you are good candidate.',
+      },
+      
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
 </Layout>
