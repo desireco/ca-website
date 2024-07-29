@@ -1,0 +1,119 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Momentum Club',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Our Signature Offering"
+    image={{
+      src: 'https://images.unsplash.com/photo-1517575563495-023867667b3a',
+      alt: 'Breakthrough Image',
+    }}
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Start Your Journey',
+        href: '/start',
+        icon: 'tabler:player-play',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Breakthrough Blueprint </Fragment>
+
+    <Fragment slot="subtitle">
+      Our signature offering is a <strong>12-week intensive program</strong> that helps you to <strong
+        >achieve your goals and dreams</strong
+      >. We will <strong>guide you</strong> and provide you with the <strong>tools and resources</strong> you need to succeed.
+    </Fragment>
+  </Hero>
+
+  <Features3
+    title="Are you feeling stuck, unfulfilled, and unsure of your next steps in life? <br><br> <small>It's time to break free from the monotony and unlock your true potential with our transformative program</small>"
+    subtitle="Unlock Your Potential."
+    columns={2}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Discover Your True Self',
+        description:
+          "In this comprehensive 12-week journey, you'll delve deep into understanding who you are and what truly matters to you. Through guided self-awareness exercises and values clarification, you'll gain a clear picture of your strengths, passions, and core values. This foundational knowledge will be the cornerstone of your transformation.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Set and Achieve Powerful Goals',
+        description:
+          "Our program empowers you to set ambitious yet achievable goals using the SMART framework. You'll create a personalized roadmap that aligns with your newfound self-awareness, ensuring that every step you take is purposeful and impactful. With one-on-one coaching and vision board creation, you'll visualize and plan your success in detail.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Build Resilience and Overcome Obstacles',
+        description:
+          "Life's challenges are inevitable, but with Breakthrough Blueprint, you'll develop the resilience and strategies needed to overcome them. Through problem-solving exercises, stress management techniques, and group discussions, you'll learn to navigate obstacles with confidence and poise.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Enhance Focus and Productivity',
+        description:
+          "Say goodbye to distractions and inefficiency. Our program includes time management workshops, routine development, and productivity enhancement strategies that will help you stay focused and accomplish more. You'll create effective habits and routines that drive you towards your goals.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Foster Meaningful Relationships',
+        description:
+          "Human connection is vital for a fulfilling life. You'll participate in communication workshops, empathy exercises, and group activities that will help you build deeper, more meaningful relationships. Strengthen your network and develop supportive, lasting connections.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Create a Vision for the Future',
+        description:
+          "With Breakthrough Blueprint, you won't just set goals; you'll envision a future that excites and inspires you. Through future self-visualization exercises, long-term planning workshops, and legacy projects, you'll create a compelling vision for your life and work towards making it a reality.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Implement and Reflect',
+        description:
+          "Our program ensures that you put your plans into action and continuously refine them. You'll regularly review your progress, share insights with the group, and reflect on your achievements. This cycle of implementation and reflection keeps you on track and motivated.",
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Find Balance',
+        description:
+          'Our program emphasizes holistic well-being, teaching you how to balance physical, mental, and emotional health while pursuing your goals. Learn strategies for stress management, self-care, and maintaining overall health to ensure sustainable success and fulfillment.',
+        icon: 'tabler:template',
+      },
+    ]}
+  />
+
+  <Hero
+    tagline="Breakthrough Blueprint"
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1661834883023-5cba0cf796de',
+      alt: 'Crossing the Bridge',
+    }}
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Start Your Journey',
+        href: '/start',
+        icon: 'tabler:player-play',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Start on Your Journey </Fragment>
+
+    <Fragment slot="subtitle">
+      We can only help you if you hire us, so why not take the first step and <strong
+        >schedule a free consultation</strong
+      > with one of our coaches? We'll discuss your goals, challenges, and aspirations, and help you decide if Breakthrough
+      Blueprint is the right fit for you.
+    </Fragment>
+  </Hero>
+</Layout>

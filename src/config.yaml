@@ -1,6 +1,6 @@
 site:
   name: Completionist Academy
-  site: 'https://completionistacademy.netlify.app/'
+  site: 'https://completionistacademy.com/'
   base: '/'
   trailingSlash: false
 
