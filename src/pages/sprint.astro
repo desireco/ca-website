@@ -1,7 +1,6 @@
 ---
-import Features3 from '~/components/widgets/Features3.astro';
-import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
+import Content2 from '~/components/widgets/Content2.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -36,8 +35,15 @@ const metadata = {
       progress.
     </Fragment>
   </Hero>
+  <Content title="Overview" />
+  <Content title="Key features" />
+  <Content title="Benefits" />
+  <Content title="Testimonials" />
+  <Content title="Program Structure" />
+  <Content title="How it works" />
+  <Content title="Call To Action" />
 
-  <Content
+  <Content2
     title="Overview"
     items={[
       {
