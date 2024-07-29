@@ -1,0 +1,60 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Breakthrough Sprint',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Helping you create momentum and get things started"
+    image={{
+      src: 'https://images.unsplash.com/photo-1525296416200-59aaed194d0c',
+      alt: 'Two persons exercising',
+    }}
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Enroll Now',
+        href: '/start',
+        icon: 'tabler:player-play',
+      },
+    ]}
+  >
+    <Fragment slot="title"
+      >Breakthrough Sprint:<br /> <small>Make Meaningful Progress<br /> in Just Two Weeks!</small></Fragment
+    >
+
+    <Fragment slot="subtitle">
+      A focused, intensive program designed to help you clarify your goal, create a strategic plan, and make meaningful
+      progress.
+    </Fragment>
+  </Hero>
+
+  <Content
+    title="Overview"
+    items={[
+      {
+        title: 'Brief Program Description',
+        description:
+          'Breakthrough Sprint is a two-week intensive program designed to help you clarify a specific goal, develop a focused plan, and make meaningful progress towards achieving it. This program is ideal for individuals looking to break free from stagnation and take decisive action in a short amount of time.',
+      },
+      {
+        title: 'Purpose and Expectations',
+        description:
+          'Participants can expect a highly structured and supportive environment that guides them through the process of setting a clear goal and creating an actionable plan. The program emphasizes accountability and focused effort, ensuring that each participant stays on track and makes measurable progress.',
+      },
+      {
+        title: 'Unique Aspects',
+        description:
+          'What sets Breakthrough Sprint apart is its intensive format, which concentrates the goal-setting and action-taking process into a short, dynamic period. This approach not only accelerates progress but also fosters a high level of engagement and motivation. By focusing intensely on a single goal, participants are able to achieve significant milestones quickly, making Breakthrough Sprint a powerful catalyst for change and accomplishment.',
+      },
+    ]}
+  />
+</Layout>

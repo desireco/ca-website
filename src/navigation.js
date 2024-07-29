@@ -12,12 +12,12 @@ export const headerData = {
     // },
     {
       text: 'Breakthrough Blueprint',
-      href: getPermalink('/breakthrough'),
+      href: getPermalink('/blueprint'),
     },
     {
       text: 'Programs',
       links: [
-        { text: 'Breakthrough Blueprint', href: getPermalink('/Blueprint') },
+        { text: 'Breakthrough Blueprint', href: getPermalink('/blueprint') },
         { text: 'Breakthrough Sprint', href: getPermalink('/sprint') },
         { text: 'Momentum Club', href: getPermalink('/momentum_club') },
       ],
