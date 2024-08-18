@@ -2,6 +2,7 @@
 import Content from '~/components/widgets/Content.astro';
 import Content2 from '~/components/widgets/Content2.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -21,13 +22,13 @@ const metadata = {
         variant: 'primary',
         target: '_blank',
         text: 'Enroll Now',
-        href: '/start',
-        icon: 'tabler:player-play',
+        href: 'https://buy.stripe.com/dR6eXsc965bVdva000',
+        icon: 'tabler:credit-card-pay',
       },
     ]}
   >
     <Fragment slot="title"
-      >Breakthrough Sprint:<br /> <small>Make Meaningful Progress<br /> in Just Two Weeks!</small></Fragment
+      ><br />Breakthrough Sprint<br /><br /> <small>Make Meaningful Progress<br /> in Just Two Weeks!</small></Fragment
     >
 
     <Fragment slot="subtitle">
@@ -45,6 +46,25 @@ const metadata = {
   <Content title="Program Structure" />
   <Content title="How it works" />
   <Content title="Call To Action" />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Enroll',
+        href: 'https://buy.stripe.com/dR6eXsc965bVdva000',
+        icon: 'tabler:credit-card-pay',
+      },
+    ]}
+  >
+    <Fragment slot="title">Success Loves Speed</Fragment>
+
+    <Fragment slot="subtitle">
+      A focused, intensive program designed to help you clarify your goal, create a strategic plan, and make meaningful
+      progress.
+    </Fragment>
+  </CallToAction>
 
   <Content2
     title="Overview"
