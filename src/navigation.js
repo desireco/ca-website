@@ -11,15 +11,15 @@ export const headerData = {
     //   href: getPermalink('/about'),
     // },
     {
-      text: 'Breakthrough Blueprint',
+      text: 'Blueprint',
       href: getPermalink('/blueprint'),
     },
     {
       text: 'Programs',
       links: [
-        { text: 'Breakthrough Blueprint', href: getPermalink('/blueprint') },
-        { text: 'Breakthrough Sprint', href: getPermalink('/sprint') },
-        { text: 'Momentum Club', href: getPermalink('/momentum_club') },
+        { text: 'Breakthrough 👊 Blueprint', href: getPermalink('/blueprint') },
+        { text: 'Breakthrough 🤜 Sprint', href: getPermalink('/sprint') },
+        { text: 'Momentum🎢 Club', href: getPermalink('/momentum_club') },
       ],
     },
     // {
