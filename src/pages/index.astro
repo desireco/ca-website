@@ -2,6 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import { YouTube } from 'astro-embed';
 
 const metadata = {
   title: 'Completionist Accademy',
@@ -11,7 +18,14 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="Transform Your Life with Completionist Academy">
+  <Hero
+    tagline="Transform Your Life with Completionist Academy"
+    actions={[{ text: 'Learn more', href: '#features' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551892589-865f69869476',
+      alt: 'Breakthrough Image',
+    }}
+  >
     <Fragment slot="title"> Transform Your Life with Completionist Academy </Fragment>
 
     <Fragment slot="subtitle">
@@ -19,5 +33,63 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <Hero tagline="Work in progress... please wait" />
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="About us"
+    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 4.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Programs"
+    subtitle="Choose between our quick tactical Sprint or strategic Blueprint programs to achieve your goals."
+    columns={2}
+    items={[
+      {
+        title: 'Breakthrough Sprint',
+        description:
+          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
+        icon: 'flat-color-icons:template',
+        callToAction: { text: 'Learn more...', href: '/sprint', variant: 'link' },
+      },
+      {
+        title: 'Breakthrough Blueprint',
+        description:
+          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
+        icon: 'flat-color-icons:template',
+        callToAction: { text: 'Learn more...', href: '/blueprint', variant: 'link' },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-200 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Breakthrough Blueprint',
+        href: '/blueprint',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">Take Action Now!</Fragment>
+
+    <Fragment slot="subtitle">
+      Learn about Breakthrough Blueprint, our flagship program that will help you achieve your goals and transform your
+      life.
+    </Fragment>
+  </CallToAction>
 </Layout>
