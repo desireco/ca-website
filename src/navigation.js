@@ -58,6 +58,10 @@ export const footerData = {
           text: 'About',
           href: getPermalink('/about'),
         },
+        {
+          text: 'Mission and Values',
+          href: getPermalink('/mission'),
+        },
       ],
     },
   ],
