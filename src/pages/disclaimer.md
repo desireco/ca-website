@@ -1,4 +1,3 @@
-# Disclaimer
 ---
 title: 'Disclaimer'
 layout: '~/layouts/MarkdownLayout.astro'
@@ -70,7 +69,7 @@ We may promote or partner with other businesses. If we receive compensation for 
 
 If you have any questions about this Disclaimer, please contact us at:
 
-Completionist Academy  
-2712 W Byron St,  
-Chicago, IL 60618  
+Completionist Academy
+2712 W Byron St,
+Chicago, IL 60618
 Email: completionistacademy@gmail.com
