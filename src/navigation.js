@@ -38,15 +38,29 @@ export const headerData = {
 };
 
 export const footerData = {
-  // links: [
-  //   {
-  //     title: 'Offering',
-  //     links: [
-  //       { text: 'Features', href: '#' },
-  //       { text: 'Security', href: '#' },
-  //     ],
-  //   },
-  // ],
+  links: [
+    {
+      title: 'Programs',
+      links: [
+        { text: 'Breakthrough 👊 Blueprint', href: getPermalink('/blueprint') },
+        { text: 'Breakthrough 🤜 Sprint', href: getPermalink('/sprint') },
+        { text: 'Momentum🎢 Club', href: getPermalink('/momentum_club') },
+      ],
+    },
+    {
+      title: 'Information',
+      links: [
+        {
+          text: 'Journal',
+          href: getBlogPermalink(),
+        },
+        {
+          text: 'About',
+          href: getPermalink('/about'),
+        },
+      ],
+    },
+  ],
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
