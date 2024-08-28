@@ -17,7 +17,7 @@ Can you take article you written about using habit tracker and create article in
 publishDate: {current date in format like this 2024-08-20T00:00:00Z}
 title: {article title}
 excerpt: {generate one sentence summary of article}
-image: https://images.pexels.com/photos/27176881/pexels-photo-27176881/free-photo-of-a-woman-brushing-her-teeth-in-front-of-a-mirror.jpeg
+image: {create a link to image you used in article}
 category: Coaching
 tags:
 {suggest tags for article here in format of
