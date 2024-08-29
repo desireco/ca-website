@@ -5,6 +5,8 @@ import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import jakeImage from '~/assets/images/jake-in-office-sm.jpeg';
 
 const metadata = {
   title: 'About us',
@@ -17,7 +19,7 @@ const metadata = {
   <Hero
     tagline="About Jake"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: jakeImage,
       alt: 'Caos Image',
     }}
   >
