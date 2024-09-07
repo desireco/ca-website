@@ -60,31 +60,49 @@ const metadata = {
     </Fragment>
   </Features2>
 
-  <Features2
-    title="About us"
-    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 4.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Breakthrough Blueprint',
-        href: '/blueprint',
-        icon: 'tabler:rocket',
-      },
-    ]}
-  >
-    <Fragment slot="title">Take Action Now!</Fragment>
-
+  <Features2 title="About us">
     <Fragment slot="subtitle">
-      Learn about Breakthrough Blueprint, our flagship program that will help you achieve your goals and transform your
-      life.
+      <p class="text-xl my-4">
+        At Completionist Academy, led by coach Jake, we are dedicated to helping people break free from stagnation,
+        achieve their goals, and live with purpose. With years of experience in business development and personal
+        challenges with ADHD and procrastination, Jake knows firsthand how hard it can be to stay focused and make
+        meaningful progress.
+      </p>
+
+      <p class="text-xl my-4">
+        Through proven strategies like accountability, meditation, journaling, and structured goal-setting, Jake
+        transformed his own life and is passionate about helping others do the same. Completionist Academy was created
+        to empower individuals to unlock their potential, find clarity, and take action. We offer comprehensive coaching
+        programs that provide guidance, accountability, and the tools you need to overcome obstacles and achieve
+        success—one step at a time.
+      </p>
+
+      <p class="text-xl my-4">
+        Our mission is simple: to support you in becoming the best version of yourself, with a clear plan and the
+        motivation to make it happen.
+      </p>
+      <p>
+        <a href="/about" class="text-blue-500 hover:underline">Learn more about us...</a>
+      </p>
     </Fragment>
-  </CallToAction>
+
+    <CallToAction
+      actions={[
+        {
+          variant: 'primary',
+          target: '_blank',
+          text: 'Breakthrough Blueprint',
+          href: '/blueprint',
+          icon: 'tabler:rocket',
+        },
+      ]}
+    >
+      <Fragment slot="title">Take Action Now!</Fragment>
+
+      <Fragment slot="subtitle">
+        Learn about Breakthrough Blueprint, our flagship program that will help you achieve your goals and transform
+        your life.
+      </Fragment>
+    </CallToAction>
+  </Features2>
 </Layout>
