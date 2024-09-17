@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -77,7 +77,7 @@ export default defineConfig({
   ],
 
   image: {
-    service: squooshImageService(),
+    service: passthroughImageService(),
     domains: ['cdn.pixabay.com'],
   },
 
