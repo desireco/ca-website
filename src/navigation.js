@@ -15,6 +15,10 @@ export const headerData = {
       href: getPermalink('/blueprint'),
     },
     {
+      text: 'Club',
+      href: getPermalink('/momentum_club'),
+    },
+    {
       text: 'Programs',
       links: [
         { text: 'Breakthrough 👊 Blueprint', href: getPermalink('/blueprint') },
