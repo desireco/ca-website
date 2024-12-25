@@ -19,6 +19,10 @@ export const headerData = {
       href: getPermalink('/momentum_club'),
     },
     // {
+    //   text: 'Products',
+    //   href: getPermalink('/digital_products'),
+    // },
+    // {
     //   text: 'Programs',
     //   links: [
     //     { text: 'Breakthrough 👊 Blueprint', href: getPermalink('/blueprint') },
@@ -49,6 +53,7 @@ export const footerData = {
         { text: 'Breakthrough 👊 Blueprint', href: getPermalink('/blueprint') },
         { text: 'Breakthrough 🤜 Sprint', href: getPermalink('/sprint') },
         { text: 'Momentum🎢 Club', href: getPermalink('/momentum_club') },
+        { text: 'Digital Products', href: getPermalink('/digital_products') },
       ],
     },
     {

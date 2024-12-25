@@ -1,0 +1,44 @@
+---
+title: "Digital Products"
+layout: "~/layouts/PageLayout.astro"
+---
+
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import ProductList from '~/components/ProductList.astro';
+
+<div class="py-16 sm:py-20">
+  <div class="text-center max-w-3xl mx-auto mb-16 px-4 sm:px-6">
+    <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-6 font-heading dark:text-gray-200">
+      Digital Products
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
+      Transform your life with our carefully crafted digital resources designed to boost your productivity and help you achieve your goals.
+    </p>
+    <div class="w-full h-1 bg-primary/20 rounded-full mb-16"></div>
+  </div>
+
+  <ProductList products={[
+    {
+      name: 'Life Upgrade Course',
+      description: 'A comprehensive course that teaches you proven strategies for personal growth, productivity, and achieving your goals.',
+      link: '/life-upgrade-course'
+    },
+    {
+      name: 'Habit Builder Toolkit',
+      description: 'Essential tools and templates to help you build lasting habits, track your progress, and stay accountable.',
+      link: '/habit-builder'
+    },
+    {
+      name: 'Focus Mastery Guide',
+      description: 'Learn techniques to improve your concentration, eliminate distractions, and get more done in less time.',
+      link: '/focus-mastery'
+    },
+  ]} />
+</div>
+
+<CallToAction
+  title="Ready to Transform Your Life?"
+  description="Choose the digital product that best fits your needs and start your journey to success today."
+  buttonText="Get Started"
+  buttonLink="#"
+/>

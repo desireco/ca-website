@@ -1,0 +1,57 @@
+---
+import { twMerge } from 'tailwind-merge';
+import Button from '~/components/ui/Button.astro';
+
+export interface Product {
+  name: string;
+  description: string;
+  link: string;
+}
+
+export interface Props {
+  products: Product[];
+  classes?: {
+    container?: string;
+    item?: string;
+    title?: string;
+    description?: string;
+  };
+}
+
+const { products, classes = {} } = Astro.props;
+
+const {
+  container: containerClass = '',
+  item: itemClass = '',
+  title: titleClass = '',
+  description: descriptionClass = '',
+} = classes;
+---
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <div
+    class={twMerge(
+      'grid mx-auto gap-8 md:gap-10 lg:grid-cols-3 sm:grid-cols-2',
+      containerClass
+    )}
+  >
+    {products.map(product => (
+      <div
+        class={twMerge(
+          'flex flex-col p-8 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl hover:scale-105 transition duration-300 border border-gray-100 dark:border-gray-700',
+          itemClass
+        )}
+      >
+        <h3 class={twMerge('text-2xl font-bold mb-4 text-gray-900 dark:text-white', titleClass)}>
+          {product.name}
+        </h3>
+        <p class={twMerge('text-gray-600 dark:text-gray-300 flex-grow mb-6 text-lg', descriptionClass)}>
+          {product.description}
+        </p>
+        <div class="mt-auto">
+          <Button variant="primary" href={product.link} class="w-full justify-center">Learn More</Button>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
