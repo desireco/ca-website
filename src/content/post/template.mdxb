@@ -1,11 +1,10 @@
-Can you take article you written about using habit tracker and create article in markdown with following format:
+Can you take article you written and create article in markdown text with following format:
 
 ---
 publishDate: {current date in format like this 2024-08-20T00:00:00Z}
 title: "{article title}"
 excerpt: {generate one sentence summary of article}
 image: {create a link to image you used in article}
-category: [suggest categories as a comma delimited list of strings]
 tags:
 {suggest tags for article here in format of
     - tag1
