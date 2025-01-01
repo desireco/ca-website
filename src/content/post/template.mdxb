@@ -7,9 +7,9 @@ excerpt: {generate one sentence summary of article}
 image: {create a link to image you used in article}
 tags:
 {suggest tags for article here in format of
-    - tag1
-    - tag2
-    - tag3
+  - tag1
+  - tag2
+  - tag3
 }
 ---
 {article in markdown goes here}
