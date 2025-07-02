@@ -11,12 +11,12 @@ export const headerData = {
     //   href: getPermalink('/about'),
     // },
     {
-      text: 'Blueprint',
-      href: getPermalink('/blueprint'),
+      text: 'Action Program',
+      href: getPermalink('/action_program'),
     },
     {
-      text: 'Club',
-      href: getPermalink('/momentum_club'),
+      text: 'Blueprint',
+      href: getPermalink('/blueprint'),
     },
     // {
     //   text: 'Products',
@@ -50,10 +50,11 @@ export const footerData = {
     {
       title: 'Programs',
       links: [
+        { text: 'Call for Action Program', href: getPermalink('/action_program') },
         { text: 'Breakthrough 👊 Blueprint', href: getPermalink('/blueprint') },
-        { text: 'Breakthrough 🤜 Sprint', href: getPermalink('/sprint') },
-        { text: 'Momentum🎢 Club', href: getPermalink('/momentum_club') },
-        { text: 'Digital Products', href: getPermalink('/digital_products') },
+        // { text: 'Breakthrough 🤜 Sprint', href: getPermalink('/sprint') },
+        // { text: 'Momentum🎢 Club', href: getPermalink('/momentum_club') },
+        // { text: 'Digital Products', href: getPermalink('/digital_products') },
       ],
     },
     {

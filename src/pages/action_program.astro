@@ -1,0 +1,131 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Momentum Club',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Join the Momentum Club: Your Best Deal in Coaching!"
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1663051303500-c85bef3f05f6',
+      alt: 'Breakthrough Image',
+    }}
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Join The Club',
+        href: 'https://completionistacademy.myflodesk.com/club',
+        icon: 'tabler:player-play',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Momentum Club </Fragment>
+
+    <Fragment slot="subtitle">
+      Unlock lifetime access to personalized coaching support! Experience tailored strategies, ongoing accountability,
+      and a vibrant community of achievers—all designed to help you reach your goals without breaking the bank.
+    </Fragment>
+  </Hero>
+
+  <Features3
+    title="Why Choose Momentum Club?"
+    subtitle="Unlock Your Potential."
+    columns={2}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Online Community',
+        description:
+          'Connect with a supportive network of like-minded individuals who share similar goals and experiences.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Unlimited Feedback and Consultations',
+        description: 'Receive ongoing guidance and support whenever you need it, ensuring you stay on track.',
+        icon: 'tabler:bubble-text',
+      },
+      {
+        title: 'Monthly Online Workshops',
+        description:
+          'Participate in engaging workshops covering various topics related to personal growth and development.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'One 1:1 Session with Coach Jake',
+        description: 'Enjoy a personalized coaching session to address your specific challenges and goals.',
+        icon: 'tabler:user-circle',
+      },
+      {
+        title: 'Learning Programs',
+        description:
+          'Access structured programs designed to equip you with practical tools and strategies for success.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Accountability and Support',
+        description: 'Benefit from regular check-ins and peer support to help you stay committed to your objectives.',
+        icon: 'tabler:message-circle-check',
+      },
+      {
+        title: 'Personality Tests',
+        description:
+          'Utilize personality assessments to gain insights into your strengths and areas for growth, enhancing your self-awareness.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Completionism Strategies Library',
+        description:
+          'Explore a comprehensive library of resources focused on completionism principles to help you achieve your goals effectively.',
+        icon: 'tabler:library',
+      },
+      {
+        title: 'Specialized Online Groups',
+        description:
+          'Join focused groups dedicated to accomplishment, goal setting, and accountability, allowing for deeper discussions and shared strategies among members with similar interests.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Personalized Tests',
+        description:
+          'Access tailored assessments that provide insights into your progress and help identify areas for improvement, ensuring a personalized growth journey.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Commit to Goals in a Safe, Judgment-Free Space',
+        description:
+          'Feel empowered to set and commit to your goals in an environment that fosters openness and support, free from judgment or criticism.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  />
+
+  <Hero
+    tagline="Join the Momentum Club: Your Best Deal in Coaching!"
+    image={{
+      alt: 'Breakthrough Image',
+    }}
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Join The Club',
+        href: 'https://completionistacademy.myflodesk.com/club',
+        icon: 'tabler:player-play',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Momentum Club </Fragment>
+
+    <Fragment slot="subtitle">
+      Unlock lifetime access to personalized coaching support for just $495! Experience tailored strategies, ongoing
+      accountability, and a vibrant community of achievers—all designed to help you reach your goals without breaking
+      the bank.
+    </Fragment>
+  </Hero>
+</Layout>
