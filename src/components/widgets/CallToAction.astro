@@ -23,6 +23,8 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const hasSubtitleSlot = await Astro.slots.render('subtitle');
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
@@ -31,7 +33,7 @@ const {
   >
     <Headline
       title={title}
-      subtitle={subtitle}
+      subtitle={hasSubtitleSlot ? '' : subtitle}
       tagline={tagline}
       classes={{
         container: 'mb-0 md:mb-0',
@@ -39,6 +41,13 @@ const {
         subtitle: 'text-xl text-muted dark:text-slate-400',
       }}
     />
+    {
+      hasSubtitleSlot && (
+        <div class="text-xl text-muted dark:text-slate-400 mb-6 text-left max-w-2xl mx-auto">
+          <slot name="subtitle" />
+        </div>
+      )
+    }
     {
       actions && (
         <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
