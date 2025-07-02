@@ -144,6 +144,29 @@ const metadata = {
         hasRibbon: true,
         ribbonTitle: 'Popular',
       },
+      {
+        title: '3-Month Program',
+        subtitle: 'Save $490 with this intensive package',
+        price: 2495,
+        period: 'for 3 months',
+        items: [
+          { description: 'Weekly 1:1 coaching calls' },
+          { description: 'Strategy & tactics sessions' },
+          { description: 'Private community access' },
+          { description: 'Complete resource library' },
+          { description: 'Personalized systems & tools' },
+          { description: 'Unlimited check-ins' },
+          { description: '💰 Save $490 vs monthly billing' },
+          { description: 'Deep transformation focus' },
+        ],
+        callToAction: {
+          text: 'Start with Strategy Session',
+          href: '#strategy-session',
+          variant: 'secondary',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Save $490',
+      },
     ]}
   />
 
@@ -211,21 +234,46 @@ const metadata = {
 
   <!-- Not Right For Section -->
   <Content
+    title="This Is Not for You If..."
+    subtitle="Let's be honest about what this program requires"
     content={`
       <div class="mb-8">
-        <h3 class="text-2xl font-bold mb-4 text-red-600">This is not for you if:</h3>
+        <h3 class="text-2xl font-bold mb-4 text-red-600">This coaching program won't be a good fit if:</h3>
+        <p class="mb-6">I believe in being upfront about expectations. This program requires active participation and personal responsibility.</p>
       </div>
     `}
     items={[
       {
         title: "You're looking for someone else to fix things for you",
+        description: 'This is about empowering you to create change, not doing the work for you',
         icon: 'tabler:x',
       },
       {
         title: "You're unwilling to commit to showing up weekly and following through",
+        description: "Consistency is key—sporadic participation won't create lasting change",
+        icon: 'tabler:x',
+      },
+      {
+        title: 'You want quick fixes or magic solutions',
+        description: 'Real transformation takes time, effort, and a willingness to face challenges',
+        icon: 'tabler:x',
+      },
+      {
+        title: "You're not ready to invest in yourself financially",
+        description: 'This is a significant investment that requires commitment to see results',
+        icon: 'tabler:x',
+      },
+      {
+        title: 'You prefer to work completely independently',
+        description: 'This program involves collaboration, feedback, and being open to guidance',
         icon: 'tabler:x',
       },
     ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Overwhelmed person with hands on head showing stress',
+    }}
+    isReversed={false}
   />
 
   <!-- The Method Section -->
