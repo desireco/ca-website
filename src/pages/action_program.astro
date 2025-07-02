@@ -1,131 +1,327 @@
 ---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
-  title: 'Momentum Club',
+  title: 'Accountability Coaching - Completionist Academy',
+  description:
+    'Personalized accountability coaching to help you take action, reduce overwhelm, and build a life that feels aligned.',
 };
 ---
 
 <Layout metadata={metadata}>
+  <!-- Hero Section -->
   <Hero
-    tagline="Join the Momentum Club: Your Best Deal in Coaching!"
+    tagline="Transform Your Life with Accountability"
     image={{
-      src: 'https://plus.unsplash.com/premium_photo-1663051303500-c85bef3f05f6',
-      alt: 'Breakthrough Image',
+      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      alt: 'Person taking action and moving forward',
     }}
     actions={[
       {
         variant: 'primary',
-        target: '_blank',
-        text: 'Join The Club',
-        href: 'https://completionistacademy.myflodesk.com/club',
-        icon: 'tabler:player-play',
+        text: 'Book Your $150 Strategy Session',
+        href: '#strategy-session',
+        icon: 'tabler:calendar',
       },
     ]}
   >
-    <Fragment slot="title"> Momentum Club </Fragment>
+    <Fragment slot="title"> What If You Finally Did the Things That Matter? </Fragment>
 
     <Fragment slot="subtitle">
-      Unlock lifetime access to personalized coaching support! Experience tailored strategies, ongoing accountability,
-      and a vibrant community of achievers—all designed to help you reach your goals without breaking the bank.
+      Personalized accountability coaching to help you take action, reduce overwhelm, and build a life that feels
+      aligned.
+      <br /><br />
+      <em>Your strategy session is included in the first month if you enroll.</em>
     </Fragment>
   </Hero>
 
-  <Features3
-    title="Why Choose Momentum Club?"
-    subtitle="Unlock Your Potential."
-    columns={2}
-    isBeforeContent={true}
+  <!-- Core Promise Section -->
+  <Content
+    title="Accountability Coaching That Moves You Forward"
+    content={`
+      <p class="text-xl mb-6"><strong>Overwhelmed? Procrastinating? Feeling stuck?</strong></p>
+      
+      <p class="mb-6">You don't need more motivation—you need support, structure, and someone who holds space and keeps you moving.</p>
+      
+      <p class="mb-4">With 1:1 weekly coaching and continuous guidance, you'll:</p>
+    `}
     items={[
       {
-        title: 'Online Community',
-        description:
-          'Connect with a supportive network of like-minded individuals who share similar goals and experiences.',
+        title: 'Get clarity and focus',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Take consistent action',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Break the loop of self-sabotage',
+        icon: 'tabler:refresh-off',
+      },
+      {
+        title: 'Start feeling aligned with your values and purpose again',
+        icon: 'tabler:heart',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Team collaboration and support',
+    }}
+    isReversed={false}
+  />
+
+  <!-- What's Included Section -->
+  <Features3
+    title="What's Included in Your Coaching Program"
+    subtitle="Everything you need to move forward with confidence and clarity."
+    columns={2}
+    items={[
+      {
+        title: 'Weekly 1:1 Calls',
+        description: 'Alternating between Strategy (big picture planning) and Tactics (what you do next)',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'Private Online Community',
+        description: 'Access to our supportive community for encouragement, reflection, and ongoing support',
         icon: 'tabler:users',
       },
       {
-        title: 'Unlimited Feedback and Consultations',
-        description: 'Receive ongoing guidance and support whenever you need it, ensuring you stay on track.',
-        icon: 'tabler:bubble-text',
-      },
-      {
-        title: 'Monthly Online Workshops',
-        description:
-          'Participate in engaging workshops covering various topics related to personal growth and development.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'One 1:1 Session with Coach Jake',
-        description: 'Enjoy a personalized coaching session to address your specific challenges and goals.',
-        icon: 'tabler:user-circle',
-      },
-      {
-        title: 'Learning Programs',
-        description:
-          'Access structured programs designed to equip you with practical tools and strategies for success.',
-        icon: 'tabler:book',
-      },
-      {
-        title: 'Accountability and Support',
-        description: 'Benefit from regular check-ins and peer support to help you stay committed to your objectives.',
-        icon: 'tabler:message-circle-check',
-      },
-      {
-        title: 'Personality Tests',
-        description:
-          'Utilize personality assessments to gain insights into your strengths and areas for growth, enhancing your self-awareness.',
-        icon: 'tabler:brain',
-      },
-      {
-        title: 'Completionism Strategies Library',
-        description:
-          'Explore a comprehensive library of resources focused on completionism principles to help you achieve your goals effectively.',
+        title: 'Completionist Academy Resource Library',
+        description: 'Tools, guides, habits, journaling prompts, and comprehensive resources for your growth',
         icon: 'tabler:library',
       },
       {
-        title: 'Specialized Online Groups',
-        description:
-          'Join focused groups dedicated to accomplishment, goal setting, and accountability, allowing for deeper discussions and shared strategies among members with similar interests.',
-        icon: 'tabler:users-group',
+        title: 'Personalized Systems',
+        description: 'Custom-built systems and frameworks designed specifically to help you stay on track',
+        icon: 'tabler:settings',
       },
       {
-        title: 'Personalized Tests',
-        description:
-          'Access tailored assessments that provide insights into your progress and help identify areas for improvement, ensuring a personalized growth journey.',
-        icon: 'tabler:clipboard-check',
+        title: 'Unlimited Accountability Check-ins',
+        description: 'Continuous support via community or optional chat to keep you moving forward',
+        icon: 'tabler:message-circle-check',
       },
       {
-        title: 'Commit to Goals in a Safe, Judgment-Free Space',
-        description:
-          'Feel empowered to set and commit to your goals in an environment that fosters openness and support, free from judgment or criticism.',
-        icon: 'tabler:shield-check',
+        title: 'No Long-term Contract',
+        description: 'Stay as long as it serves you—complete flexibility and freedom to adjust as needed',
+        icon: 'tabler:lock-open',
       },
     ]}
   />
 
-  <Hero
-    tagline="Join the Momentum Club: Your Best Deal in Coaching!"
+  <!-- Pricing Section -->
+  <Pricing
+    title="Investment in Your Growth"
+    subtitle="Simple, transparent pricing with no hidden fees or long-term commitments."
+    prices={[
+      {
+        title: 'Monthly Coaching',
+        subtitle: 'Complete accountability program',
+        price: 995,
+        period: 'per month',
+        items: [
+          { description: 'Weekly 1:1 coaching calls' },
+          { description: 'Strategy & tactics sessions' },
+          { description: 'Private community access' },
+          { description: 'Complete resource library' },
+          { description: 'Personalized systems & tools' },
+          { description: 'Unlimited check-ins' },
+          { description: 'No contract required' },
+        ],
+        callToAction: {
+          text: 'Start with Strategy Session',
+          href: '#strategy-session',
+          variant: 'primary',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Popular',
+      },
+    ]}
+  />
+
+  <!-- How to Join Section -->
+  <Steps
+    title="Your First Step: A $150 Strategy Session"
+    tagline="Getting Started"
+    items={[
+      {
+        title: 'Book Your Strategy Session',
+        description: "Schedule a 60-minute strategy session to clarify your goals and see if we're a good fit.",
+        icon: 'tabler:calendar-plus',
+      },
+      {
+        title: 'Get Clarity & Action Steps',
+        description:
+          'Walk away with clear direction, actionable next steps, and a fresh perspective on your challenges.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Decide to Enroll',
+        description:
+          'If you choose to join the program, your $150 strategy session fee is credited toward your first month.',
+        icon: 'tabler:circle-check',
+      },
+    ]}
     image={{
-      alt: 'Breakthrough Image',
+      src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
+      alt: 'Planning and strategy session',
     }}
+  />
+
+  <!-- Who This Is For Section -->
+  <Content
+    title="Is This for You?"
+    isReversed={true}
+    content={`
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold mb-4 text-green-600">This is perfect for you if:</h3>
+      </div>
+    `}
+    items={[
+      {
+        title: "You've been sitting on an important project or life goal for too long",
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'You feel scattered, overwhelmed, or stuck in loops of inaction',
+        icon: 'tabler:brain',
+      },
+      {
+        title: "You're ready to do the work—but need someone to walk alongside you",
+        icon: 'tabler:users',
+      },
+      {
+        title: 'You want structure, accountability, and progress—not just ideas',
+        icon: 'tabler:building',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2088&q=80',
+      alt: 'Person focused and determined',
+    }}
+  />
+
+  <!-- Not Right For Section -->
+  <Content
+    content={`
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold mb-4 text-red-600">This is not for you if:</h3>
+      </div>
+    `}
+    items={[
+      {
+        title: "You're looking for someone else to fix things for you",
+        icon: 'tabler:x',
+      },
+      {
+        title: "You're unwilling to commit to showing up weekly and following through",
+        icon: 'tabler:x',
+      },
+    ]}
+  />
+
+  <!-- The Method Section -->
+  <Content
+    title="The Completionist Approach"
+    subtitle="Why It Works"
+    content={`
+      <p class="mb-6">I've walked the path of ADHD, perfectionism, and burnout—and I've built systems that work with your brain, not against it.</p>
+      
+      <p class="mb-4">My method blends:</p>
+    `}
+    items={[
+      {
+        title: 'Coaching Structure',
+        description: 'Proven frameworks that create momentum and sustainable progress',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Self-awareness Tools',
+        description: 'Deep insights into your patterns, triggers, and natural rhythms',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Habit Design',
+        description: 'Custom systems that make success feel inevitable, not overwhelming',
+        icon: 'tabler:repeat',
+      },
+      {
+        title: 'Emotional Grounding',
+        description: 'Support for the inner work that makes outer change possible',
+        icon: 'tabler:heart',
+      },
+    ]}
+    isReversed={true}
+    image={{
+      src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Coach Jake - Professional headshot',
+    }}
+  />
+
+  <!-- FAQ Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Everything you need to know about the coaching program."
+    columns={1}
+    items={[
+      {
+        title: "What if I can't make a call one week?",
+        description:
+          "Life happens! We can reschedule your session or provide async support through our community platform. Your progress doesn't stop because of a scheduling conflict.",
+      },
+      {
+        title: 'What if I want to cancel?',
+        description:
+          "You're billed monthly with no long-term contract. You can pause or cancel anytime. Stay as long as the program serves you and your goals.",
+      },
+      {
+        title: "What if I don't have a big project or clear goals?",
+        description:
+          "Perfect! The coaching works for daily habits, work-life balance, general life direction, or any area where you want more focus and momentum. We'll help you discover what matters most.",
+      },
+      {
+        title: 'How is this different from other coaching programs?',
+        description:
+          'This program is specifically designed for people who struggle with follow-through, overwhelm, and perfectionism. It combines practical systems with emotional support, plus ongoing community connection.',
+      },
+      {
+        title: 'What happens in the strategy session?',
+        description:
+          "We'll spend 60 minutes getting clear on your current challenges, identifying your goals, and creating a preliminary action plan. You'll leave with concrete next steps regardless of whether you join the program.",
+      },
+      {
+        title: 'Do I need to prepare anything before we start?',
+        description:
+          "Just bring yourself and your challenges. I'll provide all the tools, frameworks, and structure we need. Your job is to show up authentically and be ready to take action.",
+      },
+    ]}
+  />
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    title="You've Waited Long Enough."
+    subtitle="There's no perfect time to start—only a powerful decision to begin. Let's make your life simpler, more focused, and more fulfilling—one week at a time."
     actions={[
       {
         variant: 'primary',
-        target: '_blank',
-        text: 'Join The Club',
-        href: 'https://completionistacademy.myflodesk.com/club',
-        icon: 'tabler:player-play',
+        text: 'Book Your Strategy Session Now – $150',
+        href: '#strategy-session',
+        icon: 'tabler:calendar',
       },
     ]}
   >
-    <Fragment slot="title"> Momentum Club </Fragment>
-
     <Fragment slot="subtitle">
-      Unlock lifetime access to personalized coaching support for just $495! Experience tailored strategies, ongoing
-      accountability, and a vibrant community of achievers—all designed to help you reach your goals without breaking
-      the bank.
+      There's no perfect time to start—only a powerful decision to begin.<br />
+      Let's make your life simpler, more focused, and more fulfilling—one week at a time.<br /><br />
+      <small class="text-muted">(Strategy session fee credited toward your first month if you join)</small>
     </Fragment>
-  </Hero>
+  </CallToAction>
 </Layout>
