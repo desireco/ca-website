@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero3.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -80,19 +80,26 @@ const metadata = {
     columns={2}
     items={[
       {
+        title: 'Action Program / Club',
+        description:
+          'Completionist Academy’s signature Accountability Coaching program helps you take action with clarity and confidence—week after week. With weekly 1:1 support, you’ll stop second-guessing and start building momentum toward the life you actually want. We blend deep strategy with practical execution, personalized systems, and compassionate accountability.',
+        icon: 'tabler:run',
+        callToAction: { text: 'Learn more...', href: '/action_program', variant: 'link' },
+      },
+      {
         title: 'Breakthrough Blueprint',
         description:
           'Breakthrough Blueprint is a 12-week coaching program designed to help you unlock your potential, achieve a goal or specific change, and create a meaningful and fulfilling life. Through a combination of self-awareness exercises, goal-setting, strategic planning, and ongoing support, this program provides you with the tools and guidance needed to make lasting changes.',
         icon: 'tabler:rocket',
         callToAction: { text: 'Learn more...', href: '/blueprint', variant: 'link' },
       },
-      {
-        title: 'Completionist Momentum Club',
-        description:
-          'Best value in coaching! Unlock lifetime access to personalized coaching and support for just $495! Experience tailored strategies, ongoing accountability, and a vibrant community of achievers—all designed to help you reach your goals.',
-        icon: 'tabler:run',
-        callToAction: { text: 'Learn more...', href: '/action_program', variant: 'link' },
-      },
+      // {
+      //   title: 'Completionist Momentum Club',
+      //   description:
+      //     'Best value in coaching! Unlock lifetime access to personalized coaching and support for just $495! Experience tailored strategies, ongoing accountability, and a vibrant community of achievers—all designed to help you reach your goals.',
+      //   icon: 'tabler:run',
+      //   callToAction: { text: 'Learn more...', href: '/momentum_club', variant: 'link' },
+      // },
       // {
       //   title: 'Breakthrough Sprint',
       //   description:
