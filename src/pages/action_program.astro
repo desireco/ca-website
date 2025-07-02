@@ -28,7 +28,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Book Your $150 Strategy Session',
-        href: '#strategy-session',
+        href: '#final-cta',
         icon: 'tabler:calendar',
       },
     ]}
@@ -138,7 +138,7 @@ const metadata = {
         ],
         callToAction: {
           text: 'Start with Strategy Session',
-          href: '#strategy-session',
+          href: '#final-cta',
           variant: 'primary',
         },
         hasRibbon: true,
@@ -160,7 +160,7 @@ const metadata = {
         ],
         callToAction: {
           text: 'Start with Strategy Session',
-          href: '#strategy-session',
+          href: '#final-cta',
           variant: 'secondary',
         },
         hasRibbon: true,
@@ -178,6 +178,11 @@ const metadata = {
         title: 'Book Your Strategy Session',
         description: "Schedule a 60-minute strategy session to clarify your goals and see if we're a good fit.",
         icon: 'tabler:calendar-plus',
+        callToAction: {
+          text: 'Book Now',
+          href: '#final-cta',
+          variant: 'primary',
+        },
       },
       {
         title: 'Get Clarity & Action Steps',
@@ -192,6 +197,12 @@ const metadata = {
         icon: 'tabler:circle-check',
       },
     ]}
+    callToAction={{
+      text: 'Book Your Strategy Session',
+      href: '#final-cta',
+      variant: 'primary',
+      icon: 'tabler:calendar',
+    }}
     image={{
       src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
       alt: 'Planning and strategy session',
@@ -354,13 +365,14 @@ const metadata = {
 
   <!-- Final CTA Section -->
   <CallToAction
+    id="final-cta"
     title="You've Waited Long Enough."
     subtitle="There's no perfect time to start—only a powerful decision to begin."
     actions={[
       {
         variant: 'primary',
         text: 'Book Your Strategy Session Now – $150',
-        href: '#strategy-session',
+        href: 'https://tidycal.com/zeljko/action-program',
         icon: 'tabler:calendar',
       },
     ]}
