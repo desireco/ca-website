@@ -40,12 +40,23 @@ export const findImage = async (
     return imagePath;
   }
 
-  const images = await fetchLocalImages();
-  const key = imagePath.replace('~/', '/src/');
+  try {
+    const images = await fetchLocalImages();
+    const key = imagePath.replace('~/', '/src/');
 
-  return images && typeof images[key] === 'function'
-    ? ((await images[key]()) as { default: ImageMetadata })['default']
-    : null;
+    if (images && typeof images[key] === 'function') {
+      const result = await images[key]();
+      return result && typeof result === 'object' && 'default' in result
+        ? (result as { default: ImageMetadata }).default
+        : null;
+    } else {
+      console.warn(`Image not found: ${imagePath}`);
+      return imagePath; // Fall back to using the path directly
+    }
+  } catch (error) {
+    console.error(`Error loading image ${imagePath}:`, error);
+    return imagePath; // Fall back to using the path directly
+  }
 };
 
 /** */
@@ -73,20 +84,29 @@ export const adaptOpenGraphImages = async (
 
         let _image;
 
-        if (
-          typeof resolvedImage === 'string' &&
-          (resolvedImage.startsWith('http://') || resolvedImage.startsWith('https://')) &&
-          isUnpicCompatible(resolvedImage)
-        ) {
-          _image = (await unpicOptimizer(resolvedImage, [defaultWidth], defaultWidth, defaultHeight, 'jpg'))[0];
-        } else if (resolvedImage) {
-          const dimensions =
-            typeof resolvedImage !== 'string' && resolvedImage?.width <= defaultWidth
-              ? [resolvedImage?.width, resolvedImage?.height]
-              : [defaultWidth, defaultHeight];
-          _image = (
-            await astroAssetsOptimizer(resolvedImage, [dimensions[0]], dimensions[0], dimensions[1], 'jpg')
-          )[0];
+        try {
+          if (
+            typeof resolvedImage === 'string' &&
+            (resolvedImage.startsWith('http://') || resolvedImage.startsWith('https://')) &&
+            isUnpicCompatible(resolvedImage)
+          ) {
+            _image = (await unpicOptimizer(resolvedImage, [defaultWidth], defaultWidth, defaultHeight, 'jpg'))[0];
+          } else if (resolvedImage) {
+            const dimensions =
+              typeof resolvedImage !== 'string' && resolvedImage?.width <= defaultWidth
+                ? [resolvedImage?.width, resolvedImage?.height]
+                : [defaultWidth, defaultHeight];
+            _image = (
+              await astroAssetsOptimizer(resolvedImage, [dimensions[0]], dimensions[0], dimensions[1], 'jpg')
+            )[0];
+          }
+        } catch (error) {
+          console.error(`Error optimizing image ${image.url}:`, error);
+          _image = {
+            url: typeof resolvedImage === 'string' ? resolvedImage : '',
+            width: defaultWidth,
+            height: defaultHeight,
+          };
         }
 
         if (typeof _image === 'object') {

@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -74,8 +74,8 @@ export default defineConfig({
   ],
 
   image: {
-    service: passthroughImageService(),
-    domains: ['cdn.pixabay.com'],
+    service: { entrypoint: 'astro/assets/services/sharp' },
+    domains: ['cdn.pixabay.com', 'images.unsplash.com', 'images.pexels.com', 'plus.unsplash.com'],
   },
 
   markdown: {

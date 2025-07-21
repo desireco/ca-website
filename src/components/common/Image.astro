@@ -41,14 +41,31 @@ const _image = await findImage(props.src);
 
 let image: ImageType | undefined = undefined;
 
-if (
-  typeof _image === 'string' &&
-  (_image.startsWith('http://') || _image.startsWith('https://')) &&
-  isUnpicCompatible(_image)
-) {
-  image = await getImagesOptimized(_image, props, unpicOptimizer);
-} else if (_image) {
-  image = await getImagesOptimized(_image, props, astroAssetsOptimizer);
+try {
+  if (
+    typeof _image === 'string' &&
+    (_image.startsWith('http://') || _image.startsWith('https://')) &&
+    isUnpicCompatible(_image)
+  ) {
+    image = await getImagesOptimized(_image, props, unpicOptimizer);
+  } else if (_image) {
+    image = await getImagesOptimized(_image, props, astroAssetsOptimizer);
+  }
+} catch (error) {
+  console.error('Failed to optimize image:', _image, error);
+  // Fallback to original image if optimization fails
+  if (typeof _image === 'string') {
+    image = {
+      src: _image,
+      attributes: {
+        alt: props.alt || '',
+        width: props.width,
+        height: props.height,
+        loading: props.loading || 'lazy',
+        decoding: props.decoding || 'async',
+      },
+    };
+  }
 }
 ---
 
@@ -56,6 +73,14 @@ if (
   !image ? (
     <Fragment />
   ) : (
-    <img src={image.src} crossorigin="anonymous" referrerpolicy="no-referrer" {...image.attributes} />
+    <img
+      src={image.src}
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      loading={props.loading || 'lazy'}
+      decoding={props.decoding || 'async'}
+      {...image.attributes}
+      onerror="this.onerror=null; if(this.src.startsWith('http')) { console.error('Image failed to load:', this.src); }"
+    />
   )
 }

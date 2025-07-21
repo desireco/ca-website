@@ -1,0 +1,93 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Image from '~/components/common/Image.astro';
+
+const testImages = [
+  {
+    name: 'Academy Intro',
+    src: '~/assets/images/blog/academy-intro.jpg',
+    type: 'Local image'
+  },
+  {
+    name: 'Accountability',
+    src: '~/assets/images/blog/accountability.jpeg',
+    type: 'Local image'
+  },
+  {
+    name: 'ADHD',
+    src: '~/assets/images/blog/adhd.jpeg',
+    type: 'Local image'
+  },
+  {
+    name: 'Digital Detox',
+    src: '~/assets/images/blog/digital-detox.jpg',
+    type: 'Local image'
+  },
+  {
+    name: 'Productivity',
+    src: '~/assets/images/blog/productivity.jpg',
+    type: 'Local image'
+  },
+  {
+    name: 'Breakthrough',
+    src: '~/assets/images/blog/breakthrough.jpg',
+    type: 'Local image'
+  },
+  {
+    name: 'Unsplash Photo',
+    src: 'https://images.unsplash.com/photo-1468818438311-4bab781ab9b8',
+    type: 'External image'
+  },
+  {
+    name: 'Pexels Photo',
+    src: 'https://images.pexels.com/photos/4959926/pexels-photo-4959926.jpeg',
+    type: 'External image'
+  }
+];
+
+const metadata = {
+  title: 'Image Test Page',
+  description: 'Testing image display in the blog',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="py-8 sm:py-16 lg:py-20 mx-auto">
+    <div class="mx-auto px-4 sm:px-6 max-w-4xl">
+      <h1 class="text-3xl font-bold mb-8">Image Test Page</h1>
+      <p class="mb-8">This page tests various image formats and sources to verify proper display.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {testImages.map((img) => (
+          <div class="border rounded-lg p-4">
+            <h2 class="text-xl font-semibold mb-2">{img.name}</h2>
+            <p class="mb-2 text-sm text-gray-600">{img.type}</p>
+            <p class="mb-2 text-xs text-gray-500">{img.src}</p>
+            <div class="aspect-video bg-gray-100 rounded overflow-hidden">
+              <Image
+                src={img.src}
+                alt={img.name}
+                width={600}
+                height={400}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-12 p-6 border rounded-lg bg-gray-50">
+        <h2 class="text-xl font-semibold mb-4">Debugging Information</h2>
+        <p class="mb-2">If any images fail to load, check the browser console for errors.</p>
+        <p>Common issues:</p>
+        <ul class="list-disc ml-6">
+          <li>CORS errors for external images</li>
+          <li>Incorrect path for local images</li>
+          <li>Issues with image optimization service</li>
+          <li>Missing permissions for image domains in the Astro config</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

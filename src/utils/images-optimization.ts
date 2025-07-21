@@ -225,13 +225,24 @@ export const astroAssetsOptimizer: ImagesOptimizer = async (
 
   return Promise.all(
     breakpoints.map(async (w: number) => {
-      const result = await getImage({ src: image, width: w, inferSize: true, ...(format ? { format: format } : {}) });
+      try {
+        const result = await getImage({ src: image, width: w, inferSize: true, ...(format ? { format: format } : {}) });
 
-      return {
-        src: result?.src,
-        width: result?.attributes?.width ?? w,
-        height: result?.attributes?.height,
-      };
+        return {
+          src: result?.src,
+          width: result?.attributes?.width ?? w,
+          height: result?.attributes?.height,
+        };
+      } catch (error) {
+        console.error(`Error optimizing image at width ${w}:`, error);
+        // Return a fallback with the original image
+        const imgSrc = typeof image === 'string' ? image : (image as ImageMetadata)?.src || '';
+        return {
+          src: imgSrc,
+          width: w,
+          height: _height || undefined,
+        };
+      }
     })
   );
 };
@@ -248,25 +259,39 @@ export const unpicOptimizer: ImagesOptimizer = async (image, breakpoints, width,
 
   const urlParsed = parseUrl(image);
   if (!urlParsed) {
-    return [];
+    // If we can't parse the URL, return the original image for each breakpoint
+    return breakpoints.map((w: number) => ({
+      src: image,
+      width: w,
+      height: height || undefined,
+    }));
   }
 
   return Promise.all(
     breakpoints.map(async (w: number) => {
-      const _height = width && height ? computeHeight(w, width / height) : height;
-      const url =
-        transformUrl({
-          url: image,
+      try {
+        const _height = width && height ? computeHeight(w, width / height) : height;
+        const url =
+          transformUrl({
+            url: image,
+            width: w,
+            height: _height,
+            cdn: urlParsed.cdn,
+            ...(format ? { format: format } : {}),
+          }) || image;
+        return {
+          src: String(url),
           width: w,
           height: _height,
-          cdn: urlParsed.cdn,
-          ...(format ? { format: format } : {}),
-        }) || image;
-      return {
-        src: String(url),
-        width: w,
-        height: _height,
-      };
+        };
+      } catch (error) {
+        console.error(`Error transforming image URL at width ${w}:`, error);
+        return {
+          src: image,
+          width: w,
+          height: height || undefined,
+        };
+      }
     })
   );
 };
@@ -289,63 +314,82 @@ export async function getImagesOptimized(
   }: ImageProps,
   transform: ImagesOptimizer = () => Promise.resolve([])
 ): Promise<{ src: string; attributes: HTMLAttributes<'img'> }> {
-  if (typeof image !== 'string') {
-    width ||= Number(image.width) || undefined;
-    height ||= typeof width === 'number' ? computeHeight(width, image.width / image.height) : undefined;
-  }
-
-  width = (width && Number(width)) || undefined;
-  height = (height && Number(height)) || undefined;
-
-  widths ||= config.deviceSizes;
-  sizes ||= getSizes(Number(width) || undefined, layout);
-  aspectRatio = parseAspectRatio(aspectRatio);
-
-  // Calculate dimensions from aspect ratio
-  if (aspectRatio) {
-    if (width) {
-      if (height) {
-        /* empty */
-      } else {
-        height = width / aspectRatio;
-      }
-    } else if (height) {
-      width = Number(height * aspectRatio);
-    } else if (layout !== 'fullWidth') {
-      // Fullwidth images have 100% width, so aspectRatio is applicable
-      console.error('When aspectRatio is set, either width or height must also be set');
-      console.error('Image', image);
+  try {
+    if (typeof image !== 'string') {
+      width ||= Number(image.width) || undefined;
+      height ||= typeof width === 'number' ? computeHeight(width, image.width / image.height) : undefined;
     }
-  } else if (width && height) {
-    aspectRatio = width / height;
-  } else if (layout !== 'fullWidth') {
-    // Fullwidth images don't need dimensions
-    console.error('Either aspectRatio or both width and height must be set');
-    console.error('Image', image);
-  }
 
-  let breakpoints = getBreakpoints({ width: width, breakpoints: widths, layout: layout });
-  breakpoints = [...new Set(breakpoints)].sort((a, b) => a - b);
+    width = (width && Number(width)) || undefined;
+    height = (height && Number(height)) || undefined;
 
-  const srcset = (await transform(image, breakpoints, Number(width) || undefined, Number(height) || undefined, format))
-    .map(({ src, width }) => `${src} ${width}w`)
-    .join(', ');
+    widths ||= config.deviceSizes;
+    sizes ||= getSizes(Number(width) || undefined, layout);
+    aspectRatio = parseAspectRatio(aspectRatio);
 
-  return {
-    src: typeof image === 'string' ? image : image.src,
-    attributes: {
-      width: width,
-      height: height,
-      srcset: srcset || undefined,
-      sizes: sizes,
-      style: `${getStyle({
+    // Calculate dimensions from aspect ratio
+    if (aspectRatio) {
+      if (width) {
+        if (height) {
+          /* empty */
+        } else {
+          height = width / aspectRatio;
+        }
+      } else if (height) {
+        width = Number(height * aspectRatio);
+      } else if (layout !== 'fullWidth') {
+        // Fullwidth images have 100% width, so aspectRatio is applicable
+        console.warn('When aspectRatio is set, either width or height must also be set');
+        console.warn('Image', image);
+      }
+    } else if (width && height) {
+      aspectRatio = width / height;
+    } else if (layout !== 'fullWidth') {
+      // Fullwidth images don't need dimensions
+      console.warn('Either aspectRatio or both width and height must be set');
+      console.warn('Image', image);
+    }
+
+    let breakpoints = getBreakpoints({ width: width, breakpoints: widths, layout: layout });
+    breakpoints = [...new Set(breakpoints)].sort((a, b) => a - b);
+
+    let srcset;
+    try {
+      srcset = (await transform(image, breakpoints, Number(width) || undefined, Number(height) || undefined, format))
+        .map(({ src, width }) => `${src} ${width}w`)
+        .join(', ');
+    } catch (error) {
+      console.error('Error generating srcset:', error);
+      srcset = '';
+    }
+
+    return {
+      src: typeof image === 'string' ? image : image.src,
+      attributes: {
         width: width,
         height: height,
-        aspectRatio: aspectRatio,
-        objectPosition: objectPosition,
-        layout: layout,
-      })}${style ?? ''}`,
-      ...rest,
-    },
-  };
+        srcset: srcset || undefined,
+        sizes: sizes,
+        style: `${getStyle({
+          width: width,
+          height: height,
+          aspectRatio: aspectRatio,
+          objectPosition: objectPosition,
+          layout: layout,
+        })}${style ?? ''}`,
+        ...rest,
+      },
+    };
+  } catch (error) {
+    console.error('Error in getImagesOptimized:', error);
+    // Return basic image with original source as fallback
+    return {
+      src: typeof image === 'string' ? image : (image as ImageMetadata)?.src || '',
+      attributes: {
+        width: width,
+        height: height,
+        ...rest,
+      },
+    };
+  }
 }
