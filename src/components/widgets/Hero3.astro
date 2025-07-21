@@ -77,14 +77,16 @@ const {
     >
       {
         image && (
-          <div class="relative w-full">
+          <div class="relative m-auto max-w-5xl">
             {typeof image === 'string' ? (
               <Fragment set:html={image} />
             ) : (
               <Image
-                class="w-full h-auto object-cover"
-                widths={[400, 768, 1024, 1920, 2560, 3840]}
-                sizes="100vw"
+                class="mx-auto w-full h-auto object-cover rounded-md"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                width={1024}
+                height={576}
                 loading="eager"
                 {...image}
               />
