@@ -1,5 +1,6 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import type { ImageMetadata } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
@@ -8,6 +9,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { findImage } from '~/utils/images';
 
 export const prerender = true;
 
@@ -23,6 +25,9 @@ const currentPage = page.currentPage ?? 1;
 // const allCategories = await findCategories();
 // const allTags = await findTags();
 
+// Blog listing Open Graph image
+const blogImage = (await findImage('~/assets/images/blog/academy-intro.jpg')) as ImageMetadata | string | undefined;
+
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
@@ -31,6 +36,17 @@ const metadata = {
   },
   openGraph: {
     type: 'blog',
+    ...(blogImage
+      ? {
+          images: [
+            {
+              url: blogImage,
+              width: (blogImage as ImageMetadata)?.width || 1200,
+              height: (blogImage as ImageMetadata)?.height || 628,
+            },
+          ],
+        }
+      : {}),
   },
 };
 ---
